@@ -1,0 +1,14 @@
+<h1>新規記事作成</h1>
+
+<%= form_for :article, url: articles_path do |f| %>
+  <% if @article.errors.any?%>
+    タイトルかテキストに<%= @article.errors.count %>個のエラーあります<br>
+    <% @article.errors.full_messages.each do |msg|%>
+      <%= msg %><br>
+    <% end %>
+  <% end %>
+
+  <%= f.text_field :title %><br>
+  <%= f.text_area :text %><br>
+  <%= f.submit %>
+<% end %>
